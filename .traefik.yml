@@ -1,0 +1,13 @@
+# Ce fichier permet à Traefik d’identifier le plugin.
+type: middleware
+name: addprefix-from-host
+import: github.com/subotaii/traefik-plugin-addprefix-from-host
+displayName: Add Prefix From Host
+summary: "Dynamically add a path prefix based on the request subdomain (exact AddPrefix behavior, but generic)."
+testData:
+  basePrefix: "/clubs"
+  domainSuffix: "example.com"
+  bypassPathPrefixes:
+    - "/healthz"
+    - "/metrics"
+  allowRootHost: false
