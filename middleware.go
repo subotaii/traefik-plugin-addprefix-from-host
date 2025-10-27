@@ -1,4 +1,4 @@
-package main
+package traefik_plugin_addprefix_from_host
 
 import (
 	"context"
@@ -29,6 +29,8 @@ type Config struct {
 }
 
 // CreateConfig initializes the default plugin configuration.
+// Yaegi expects this symbol to be exported from the package whose name
+// is the repo name with dashes replaced by underscores.
 func CreateConfig() *Config {
 	return &Config{
 		BasePrefix:         "/clubs",
@@ -47,7 +49,12 @@ type addPrefixFromHost struct {
 }
 
 // New creates a new middleware.
-func New(_ context.Context, next http.Handler, cfg *Config, _ string) (http.Handler, error) {
+// Signature must match Traefik plugin expectations.
+func New(ctx context.Context, next http.Handler, cfg *Config, name string) (http.Handler, error) {
+	// Avoid unused warnings in some build contexts.
+	_ = ctx
+	_ = name
+
 	var hostRe *regexp.Regexp
 	if cfg.HostPattern != "" {
 		hostRe = regexp.MustCompile(cfg.HostPattern)

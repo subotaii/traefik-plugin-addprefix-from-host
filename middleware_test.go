@@ -1,4 +1,4 @@
-package main
+package traefik_plugin_addprefix_from_host
 
 import (
 	"net/http"
