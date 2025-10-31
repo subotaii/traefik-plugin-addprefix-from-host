@@ -3,11 +3,6 @@ type: middleware
 name: addprefix-from-host
 import: github.com/subotaii/traefik-plugin-addprefix-from-host
 displayName: Add Prefix From Host
-summary: "Dynamically add a path prefix based on the request subdomain (exact AddPrefix behavior, but generic)."
+summary: "Dynamically add a path prefix based on the request subdomain (exact AddPrefix behavior, but with subdomain)."
 testData:
   basePrefix: "/clubs"
-  domainSuffix: "example.com"
-  bypassPathPrefixes:
-    - "/healthz"
-    - "/metrics"
-  allowRootHost: false
