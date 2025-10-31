@@ -19,7 +19,7 @@ experimental:
   plugins:
     addPrefixFromHost:
       moduleName: github.com/subotaii/traefik-plugin-addprefix-from-host
-      version: v0.2.0
+      version: v0.3.0
 ```
 
 ### Dynamic
